@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="vikings@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="vikings">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="performance_schema"/>
+    <schema id="6" parent="1" name="sys"/>
+    <table id="7" parent="2" name="cliente"/>
+    <table id="8" parent="2" name="tbos"/>
+    <table id="9" parent="2" name="tbusuario"/>
+    <column id="10" parent="7" name="idclient">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="11" parent="7" name="nome">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="12" parent="7" name="cpf">
+      <Position>3</Position>
+      <DataType>varchar(14)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="13" parent="7" name="cep">
+      <Position>4</Position>
+      <DataType>varchar(15)|0</DataType>
+    </column>
+    <column id="14" parent="7" name="cidade">
+      <Position>5</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="15" parent="7" name="uf">
+      <Position>6</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="16" parent="7" name="endclient">
+      <Position>7</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="17" parent="7" name="foneclient">
+      <Position>8</Position>
+      <DataType>varchar(14)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="18" parent="7" name="emailClient">
+      <Position>9</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <index id="19" parent="7" name="cpf">
+      <ColNames>cpf</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="20" parent="7" name="PRIMARY">
+      <ColNames>idclient</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="21" parent="7" name="cpf">
+      <ColNames>cpf</ColNames>
+      <UnderlyingIndexName>cpf</UnderlyingIndexName>
+    </key>
+    <column id="22" parent="8" name="os">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="23" parent="8" name="data_os">
+      <Position>2</Position>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="24" parent="8" name="equipamento">
+      <Position>3</Position>
+      <DataType>varchar(150)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="25" parent="8" name="defeito">
+      <Position>4</Position>
+      <DataType>varchar(150)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="26" parent="8" name="servico">
+      <Position>5</Position>
+      <DataType>varchar(150)|0</DataType>
+    </column>
+    <column id="27" parent="8" name="tecnico">
+      <Position>6</Position>
+      <DataType>varchar(150)|0</DataType>
+    </column>
+    <column id="28" parent="8" name="valor">
+      <Position>7</Position>
+      <DataType>decimal(10,2)|0</DataType>
+    </column>
+    <column id="29" parent="8" name="idclient">
+      <Position>8</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="30" parent="8" name="idclient">
+      <ColNames>idclient</ColNames>
+    </index>
+    <key id="31" parent="8" name="PRIMARY">
+      <ColNames>os</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="32" parent="9" name="iduser">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="33" parent="9" name="usuario">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="9" name="fone">
+      <Position>3</Position>
+      <DataType>varchar(15)|0</DataType>
+    </column>
+    <column id="35" parent="9" name="login">
+      <Position>4</Position>
+      <DataType>varchar(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="36" parent="9" name="senha">
+      <Position>5</Position>
+      <DataType>varchar(15)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="37" parent="9" name="login">
+      <ColNames>login</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="38" parent="9" name="PRIMARY">
+      <ColNames>iduser</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="39" parent="9" name="login">
+      <ColNames>login</ColNames>
+      <UnderlyingIndexName>login</UnderlyingIndexName>
+    </key>
+  </database-model>
+</dataSource>

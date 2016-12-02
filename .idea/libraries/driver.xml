@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="driver">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/production/lfnoleto-vikings/driver/jfoenix.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/production/lfnoleto-vikings/driver/mysql-connector-java-5.1.39-bin.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

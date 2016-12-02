@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="driver1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/driver/mysql-connector-java-5.1.39-bin.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/driver/jfoenix.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
