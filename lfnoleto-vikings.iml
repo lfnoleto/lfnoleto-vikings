@@ -7,12 +7,10 @@
     </content>
     <orderEntry type="jdk" jdkName="1.8 (1)" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="driver1" level="project" />
-    <orderEntry type="library" name="driver" level="project" />
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../jars/jfoenix.jar!/" />
+          <root url="jar://$MODULE_DIR$/src/driver/mysql-connector-java-5.1.39-bin.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -21,7 +19,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../jars/mysql-connector-java-5.1.39/mysql-connector-java-5.1.39-bin.jar!/" />
+          <root url="jar://$MODULE_DIR$/src/driver/jfoenix.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
