@@ -19,7 +19,7 @@
 
 <AnchorPane prefHeight="367.0" prefWidth="580.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.lfnoleto.controller.LoginController">
    <children>
-      <AnchorPane fx:id="cena1" prefHeight="367.0" prefWidth="580.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="cena1" prefHeight="367.0" prefWidth="580.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Pane layoutX="7.0" layoutY="7.0" prefHeight="354.0" prefWidth="566.0" styleClass="AnchorPane" stylesheets="@Login.css">
                <children>
@@ -60,12 +60,12 @@
             </Pane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="cena2" visible="false">
+      <AnchorPane fx:id="cena2">
          <children>
             <Pane layoutX="7.0" layoutY="6.0" prefHeight="354.0" prefWidth="566.0" styleClass="AnchorPane" stylesheets="@Login.css" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="6.0">
                <children>
-                  <Label layoutX="10.0" layoutY="106.0" text="Informe um usuário com permissão" textFill="WHITE" />
-                  <Label layoutX="10.0" layoutY="131.0" text="para acessar o sistema:" textFill="WHITE" />
+                  <Label layoutX="10.0" layoutY="106.0" text="Informe um usuário com permissão" textFill="WHITE" visible="false" />
+                  <Label layoutX="10.0" layoutY="131.0" text="para acessar o sistema:" textFill="WHITE" visible="false" />
                   <Region prefHeight="25.0" prefWidth="154.0" styleClass="Region" stylesheets="@Login.css" />
                   <Label layoutX="5.0" layoutY="1.0" text="Permissão de Acesso" textFill="WHITE">
                      <font>
