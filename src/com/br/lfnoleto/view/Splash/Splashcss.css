@@ -1,0 +1,10 @@
+.root{
+
+    -fx-background-color: transparent;
+}
+
+.imagem{
+
+    -fx-background-image: url("../../../../../imagens/vikings.png");
+
+}
