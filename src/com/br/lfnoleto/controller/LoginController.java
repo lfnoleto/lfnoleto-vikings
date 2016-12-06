@@ -6,10 +6,12 @@ import com.br.lfnoleto.model.dao.ModuloConexao;
 import com.br.lfnoleto.model.dao.UsuarioDao;
 
 import com.br.lfnoleto.model.main.MainScenaBase;
+import com.br.lfnoleto.model.mascaras.Notification;
 import com.br.lfnoleto.model.mascaras.TextFieldFormatter;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.transitions.hamburger.HamburgerBasicCloseTransition;
 import com.jfoenix.transitions.hamburger.HamburgerSlideCloseTransition;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import java.net.URL;
@@ -33,11 +35,15 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 
 import java.sql.*;
 
 
 	public class LoginController implements Initializable {
+
+		Notification notification = new Notification();
 
 
 		//
@@ -100,6 +106,9 @@ import java.sql.*;
 						alert.setContentText("Erro ao chamar um cena Entre em contato com o Suporte tecnico /n"+ e);
 						alert.show();
 
+
+
+
 					}
 
 
@@ -108,11 +117,9 @@ import java.sql.*;
 
 		 			try {
 
-						Alert alert = new Alert(Alert.AlertType.INFORMATION);
-						alert.setTitle("ERRO");
-						alert.setHeaderText(null);
-						alert.setContentText("Nome de Usuário ou Senha Está Incorreto, ou Você Não Tem Permissões");
-						alert.show();
+						notification.notification(1);
+						this.txCuser.setText(null);
+						this.txCSenha.setText(null);
 
 
 					}catch (Exception e){
@@ -157,11 +164,16 @@ import java.sql.*;
 
 					try {
 
+
 						Alert alert = new Alert(Alert.AlertType.INFORMATION);
 						alert.setTitle("ERRO");
 						alert.setHeaderText(null);
 						alert.setContentText("Nome de Usuário ou Senha Está Incorreto, ou Você Não Tem Permissões");
 						alert.show();
+
+
+
+
 
 						this.txCuser.setText(null);
 						this.txCSenha.setText(null);

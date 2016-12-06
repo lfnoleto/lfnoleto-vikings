@@ -72,7 +72,7 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="144.0" fitWidth="145.0" layoutX="214.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="141.0" fitWidth="177.0" layoutX="184.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../../imagens/Logo.png" />
                      </image>

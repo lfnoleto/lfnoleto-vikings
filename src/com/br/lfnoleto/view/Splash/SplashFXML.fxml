@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="root" stylesheets="@Splashcss.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane fx:id="roott" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="roote" stylesheets="@Splashcss.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.lfnoleto.controller.SplashController">
    <children>
-      <Region layoutX="39.0" layoutY="21.0" prefHeight="408.0" prefWidth="600.0" styleClass="imagem" stylesheets="@Splashcss.css" />
+      <Region prefHeight="200.0" prefWidth="200.0" styleClass="imagem" stylesheets="@Splashcss.css" />
    </children>
-</AnchorPane>
+</StackPane>
