@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="367.0" prefWidth="580.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.lfnoleto.controller.LoginController">
+<AnchorPane prefHeight="367.0" prefWidth="580.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.br.lfnoleto.controller.LoginController">
    <children>
       <AnchorPane fx:id="cena2">
          <children>
@@ -30,7 +30,7 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="141.0" fitWidth="177.0" layoutX="184.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="133.0" fitWidth="154.0" layoutX="186.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../../imagens/Logo.png" />
                      </image>
