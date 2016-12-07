@@ -5,6 +5,13 @@
 
 .imagem{
 
-    -fx-background-image: url("../../../../../imagens/vikings.png");
+    -fx-background-image: url("../../../../../imagens/logoFinal.png");
+
+}
+
+
+.imagem2{
+
+    -fx-background-image: url("../../../../../imagens/4946069.gif");
 
 }

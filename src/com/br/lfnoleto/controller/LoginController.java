@@ -2,48 +2,34 @@ package com.br.lfnoleto.controller;
 
 
 import com.br.lfnoleto.model.bean.Usuario;
-import com.br.lfnoleto.model.dao.ModuloConexao;
 import com.br.lfnoleto.model.dao.UsuarioDao;
 
 import com.br.lfnoleto.model.main.MainScenaBase;
 import com.br.lfnoleto.model.mascaras.Notification;
 import com.br.lfnoleto.model.mascaras.TextFieldFormatter;
-import com.jfoenix.controls.JFXHamburger;
-import com.jfoenix.transitions.hamburger.HamburgerBasicCloseTransition;
-import com.jfoenix.transitions.hamburger.HamburgerSlideCloseTransition;
-import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 
-import javax.swing.*;
-import javax.swing.text.MaskFormatter;
-
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
-import javafx.util.Duration;
-import org.controlsfx.control.Notifications;
-
-import java.sql.*;
 
 
-	public class LoginController implements Initializable {
+public class LoginController implements Initializable {
 
 		Notification notification = new Notification();
+	    UsuarioDao usuarioDao = new UsuarioDao();
 
 
 		//
@@ -80,7 +66,7 @@ import java.sql.*;
 
 		//*  atualizado dia 27-11-2016
 
-		//*
+		//*  atualizado dia 06-12-2016
 
 		//*
 
@@ -88,112 +74,50 @@ import java.sql.*;
 
 		public void tbCEntraAction(ActionEvent evt)  {
 
-		 	    UsuarioDao usuarioDao = new UsuarioDao();
+
 
 		 		if(usuarioDao.checkLogin(this.txCuser.getText(),this.txCSenha.getText())){
 
 					try {
-
 
 						new MainScenaBase().start(new Stage());
 						((Node)evt.getSource()).getScene().getWindow().hide();
 
 					}catch (Exception e){
 
-						Alert alert = new Alert(Alert.AlertType.INFORMATION);
-						alert.setTitle("ERRO");
-						alert.setHeaderText(null);
-						alert.setContentText("Erro ao chamar um cena Entre em contato com o Suporte tecnico /n"+ e);
-						alert.show();
-
-
-
-
+						notification.exception(2,e);
 					}
 
-
 				  }else{
-
-
-		 			try {
-
 						notification.notification(1);
 						this.txCuser.setText(null);
 						this.txCSenha.setText(null);
-
-
-					}catch (Exception e){
-
-		 				Alert alert = new Alert(Alert.AlertType.INFORMATION);
-		 				alert.setTitle("Erro");
-		 				alert.setHeaderText(null);
-		 				alert.setContentText("Entre em contato com o Suporte tecnico");
-		 				alert.show();
-
-					}
-
-				}
-
-
+				  }
 			 }
-            UsuarioDao usuarioDao = new UsuarioDao();
+
 		public  void tbCEntraActionE(KeyEvent event){
 
-		 	if(event.getCode() == KeyCode.ENTER){
 
-				if(usuarioDao.checkLogin(this.txCuser.getText(),this.txCSenha.getText()))
 
-				{
+		 	if(event.getCode() == KeyCode.ENTER)
+
+		 		if(usuarioDao.checkLogin(this.txCuser.getText(),this.txCSenha.getText())){
+
 					try {
-
 
 						new MainScenaBase().start(new Stage());
-						((Node) event.getSource()).getScene().getWindow().hide();
-
-					} catch (Exception e) {
-
-						Alert alert = new Alert(Alert.AlertType.INFORMATION);
-						alert.setTitle("ERRO");
-						alert.setHeaderText(null);
-						alert.setContentText("Erro ao chamar um cena Entre em contato com o Suporte tecnico /n" + e);
-						alert.show();
-
-					}
-				} else{
-
-
-					try {
-
-
-						Alert alert = new Alert(Alert.AlertType.INFORMATION);
-						alert.setTitle("ERRO");
-						alert.setHeaderText(null);
-						alert.setContentText("Nome de Usuário ou Senha Está Incorreto, ou Você Não Tem Permissões");
-						alert.show();
-
-
-
-
-
-						this.txCuser.setText(null);
-						this.txCSenha.setText(null);
-
+						((Node)event.getSource()).getScene().getWindow().hide();
 
 					}catch (Exception e){
 
-						Alert alert = new Alert(Alert.AlertType.INFORMATION);
-						alert.setTitle("Erro");
-						alert.setHeaderText(null);
-						alert.setContentText("Entre em contato com o Suporte tecnico");
-						alert.show();
-
+						notification.exception(2,e);
 					}
 
+				}else{
+					notification.notification(1);
+					this.txCuser.setText(null);
+					this.txCSenha.setText(null);
 				}
-
-
-
-			}
 
 
 
@@ -210,13 +134,7 @@ import java.sql.*;
 
 			}catch (Exception e){
 
-				Alert alert = new Alert(Alert.AlertType.INFORMATION);
-				alert.setTitle("ERRO");
-				alert.setHeaderText(null);
-				alert.setContentText("Erro ao Fenha o Sistema /n" + e);
-				alert.show();
-
-
+			notification.exception(1,e);
 
 			}
 
@@ -233,8 +151,6 @@ import java.sql.*;
 
 		public void tbCAEntraAction(ActionEvent evt){
 
-			UsuarioDao usuarioDao = new UsuarioDao();
-
 			if(usuarioDao.checkLoginEnter(this.txCALogin.getText(),this.txCASenha.getText())){
 
 				try {
@@ -242,25 +158,14 @@ import java.sql.*;
 					this.cena4.setVisible(true);
 
 				}catch (Exception e){
-
-
-					Alert alert = new Alert(Alert.AlertType.INFORMATION);
-					alert.setTitle("ERRO");
-					alert.setHeaderText(null);
-					alert.setContentText("Erro ao chamar a cena entre em contato com Suporte Técnico do Sistema"+e);
-					alert.show();
-
+					notification.exception(1,e);
 				}
-
 
 			}else{
 
-					Alert alert = new Alert(Alert.AlertType.INFORMATION);
-					alert.setTitle("ERRO");
-					alert.setHeaderText(null);
-					alert.setContentText("Nome de Usuário ou Senha Está Incorreto, ou Você Não Nem Permissões");
-					alert.show();
-
+				notification.notification(1);
+				this.txCALogin.setText(null);
+				this.txCASenha.setText(null);
 
 			}
 
@@ -274,236 +179,38 @@ import java.sql.*;
 
 				if(usuarioDao.checkLoginEnter(this.txCALogin.getText(),this.txCASenha.getText())){
 
-					try{
-
+					try {
 						this.cena3.setVisible(false);
 						this.cena4.setVisible(true);
 
-
 					}catch (Exception e){
-
-						Alert alert = new Alert(Alert.AlertType.INFORMATION);
-						alert.setTitle("ERRO");
-						alert.setHeaderText(null);
-						alert.setContentText("Erro ao chamar a cena entre em contato com Suporte Técnico do Sistema"+e);
-						alert.show();
-						this.txCALogin.setText(null);
-						this.txCASenha.setText(null);
-
-
-
+						notification.exception(1,e);
 					}
-
 
 				}else{
 
-
-					Alert alert = new Alert(Alert.AlertType.INFORMATION);
-					alert.setTitle("ERRO");
-					alert.setHeaderText("Nome de Usuário ou Senha Está Incorreto, ou Você Não Tem Permissões");
-					alert.setContentText("Essa Cadastro de Novo Usuário Só Pode Ser Feito Com Senha de Adminitrador");
-					alert.show();
+					notification.notification(1);
 					this.txCALogin.setText(null);
 					this.txCASenha.setText(null);
 
-
 				}
 
+
 			}
-
-
-
-
 
 		}
 
 		public void tbCACancelar(ActionEvent evt){
 
-
 			try{
-				this.cena3.setVisible(false);
-				this.cena2.setVisible(true);
+
+				System.exit(0);
 
 			}catch (Exception e){
 
-				Alert alert = new Alert(Alert.AlertType.INFORMATION);
-				alert.setHeaderText(null);
-				alert.setContentText("Erro ao Volta Entre em Contato com Suporte Técnico do Sistema");
-				alert.show();
+				notification.exception(1,e);
 
 			}
-
-		}
-
-		public void tbCCEntraAction(ActionEvent evt){
-
-			if(this.txCCNome.getText()!=null && this.txCCTelefone!=null&& this.txCCLogin!= null && this.txCCSenha!=null && this.txCCSenhaC !=null){
-
-				if(this.txCCSenha.getText().equals(this.txCCSenhaC.getText())){
-
-					try {
-
-						UsuarioDao usuarioDao = new UsuarioDao();
-						Usuario usuario = new Usuario();
-
-						usuario.setUsuario(this.txCCNome.getText());
-						usuario.setFone(this.txCCTelefone.getText());
-						usuario.setLogin(this.txCCLogin.getText());
-						usuario.setSenha(this.txCCSenha.getText());
-						usuarioDao.create(usuario);
-
-						Alert alert = new Alert(Alert.AlertType.INFORMATION);
-						alert.setTitle("salvo");
-						alert.setHeaderText(null);
-						alert.setContentText("Salvo com sucesso");
-						alert.show();
-
-						this.txCCNome.setText(null);
-						this.txCCTelefone.setText(null);
-						this.txCCLogin.setText(null);
-						this.txCSenha.setText(null);
-						this.txCCSenhaC.setText(null);
-
-
-
-					}catch (Exception e){
-
-						Alert alert = new Alert(Alert.AlertType.INFORMATION);
-						alert.setTitle("ERRO");
-						alert.setHeaderText(null);
-						alert.setContentText("Erro ao Gravar Os Dados no Banco de Dado./n"+e);
-						alert.show();
-
-
-
-
-
-					}
-
-
-
-
-
-				}else{
-
-					Alert alert = new Alert(Alert.AlertType.INFORMATION);
-					alert.setTitle("ERRO");
-					alert.setHeaderText(null);
-					alert.setContentText("As Senha Não Confere.");
-					alert.show();
-
-				}
-
-
-
-
-
-
-			}else{
-
-				Alert alert = new Alert(Alert.AlertType.INFORMATION);
-				alert.setTitle("ERRO");
-				alert.setHeaderText(null);
-				alert.setContentText("Todos Os Campos do Cadastro de Usuario Deve Ser Preenchidos");
-				alert.show();
-
-			}
-
-
-
-
-		}
-
-		public void tbCCEntraActionE(KeyEvent event){
-
-			if(event.getCode()== KeyCode.ENTER){
-
-				Usuario usuario = new Usuario();
-				UsuarioDao usuarioDao = new UsuarioDao();
-
-				if(this.txCCNome!=null && this.txCCTelefone!=null && this.txCCLogin!=null && this.txCCSenha!=null && this.txCCSenhaC!=null){
-
-					if(this.txCCSenha.getText().equals(this.txCCSenhaC.getText())){
-
-						try {
-							usuario.setUsuario(this.txCCNome.getText());
-							usuario.setFone(this.txCCTelefone.getText());
-							usuario.setLogin(this.txCCLogin.getText());
-							usuario.setSenha(this.txCCSenha.getText());
-							usuarioDao.create(usuario);
-
-							Alert alert = new Alert(Alert.AlertType.INFORMATION);
-							alert.setTitle("salvo");
-							alert.setHeaderText(null);
-							alert.setContentText("Salvo com sucesso");
-							alert.show();
-
-
-						}catch (Exception e){
-
-							Alert alert = new Alert(Alert.AlertType.INFORMATION);
-							alert.setTitle("ERRO");
-							alert.setHeaderText(null);
-							alert.setContentText("Erro ao Gravar Os Dados no Banco de Dado./n"+e);
-							alert.show();
-
-
-						}
-
-
-
-					}else{
-
-						Alert alert = new Alert(Alert.AlertType.INFORMATION);
-						alert.setTitle("ERRO");
-						alert.setHeaderText(null);
-						alert.setContentText("As Senha Não Confere.");
-						alert.show();
-
-
-
-					}
-
-
-
-
-				}else{
-					Alert alert = new Alert(Alert.AlertType.INFORMATION);
-					alert.setTitle("ERRO");
-					alert.setHeaderText(null);
-					alert.setContentText("Todos Os Campos do Cadastro de Usuario Deve Ser Preenchidos");
-					alert.show();
-
-				}
-
-
-
-			}
-
-
-		}
-
-		public void tbCCCancelarAction(ActionEvent evt){
-
-
-			try {
-
-				this.cena4.setVisible(false);
-				this.cena2.setVisible(true);
-
-			}catch (Exception e){
-
-				Alert alert = new Alert(Alert.AlertType.INFORMATION);
-				alert.setHeaderText(null);
-				alert.setContentText("Erro ao Volta Entre em Contato com Suporte Técnico do Sistema." + e);
-				alert.show();
-
-
-			}
-
-
-
-
 		}
 
 		public void mascaraTelefone(){
@@ -516,10 +223,6 @@ import java.sql.*;
 
 
 		}
-
-
-
-
 
 		@Override
 		public void initialize(URL location, ResourceBundle resources) {
