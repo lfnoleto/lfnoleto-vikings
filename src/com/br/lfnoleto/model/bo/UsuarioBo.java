@@ -11,6 +11,7 @@ public class UsuarioBo {
     Usuario usuario = new Usuario();
     UsuarioDao usuarioDao = new UsuarioDao();
 
+
     public void novoUser(){
 
 
