@@ -11,7 +11,7 @@ public class ModuloConexao {
 		String driver = "com.mysql.jdbc.Driver";
 		//armazenado infomaçao referente ao banco
 		//String url = "jdbc:mysql://localhost:3306/cadastro_cliente";
-		String url = "jdbc:mysql://localhost:3307/vikings";
+		String url = "jdbc:mysql://localhost:3306/vikings";
 		String user ="root";
 		String password ="";
 		// Estabelecendo a conexao com o banco
