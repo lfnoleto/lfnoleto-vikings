@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 
 public class Main extends Application {
 
+
 	@Override
 	public void start(Stage stage) throws IOException {
 			
@@ -22,7 +23,9 @@ public class Main extends Application {
 			scene.setFill(null);
 			stage.setScene(scene);
 			stage.initStyle(StageStyle.TRANSPARENT);
-			stage.show();		
+			stage.show();
+
+
 			
 	}
 
