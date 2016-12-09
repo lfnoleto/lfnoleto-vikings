@@ -15,6 +15,7 @@ public class ModuloConexao {
 		String user ="root";
 		String password ="";
 		// Estabelecendo a conexao com o banco
+
 		try {
 			
 			Class.forName(driver);
