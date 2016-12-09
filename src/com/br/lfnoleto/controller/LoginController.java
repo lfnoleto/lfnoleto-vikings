@@ -37,6 +37,7 @@ import java.sql.*;
 	public class LoginController implements Initializable {
 
 		Notification notification = new Notification();
+		Usuario usuario = new Usuario();
 
 
 		//
@@ -80,6 +81,9 @@ import java.sql.*;
 		//
 
 		public void tbCEntraAction(ActionEvent evt)  {
+
+			 usuario.setLogin(this.txCuser.getText());
+
 
 		 	    UsuarioDao usuarioDao = new UsuarioDao();
 
