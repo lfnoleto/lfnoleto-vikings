@@ -66,6 +66,15 @@
         </dependency>
 
 
+        <!-- hibernate -->
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>5.2.5.Final</version>
+        </dependency>
+
+
 
     </dependencies>
 
